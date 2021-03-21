@@ -1,5 +1,5 @@
 from server.config import app
-from flask import render_template, request, session, redirect
+from flask import render_template, request, session, redirect, jsonify
 from apps.users.m_users import LoginForm, ChangePasswordForm
 from apps.logs import o_logs
 from apps.users import o_login
@@ -16,7 +16,7 @@ def route_login():
             session['username'] = request.form['email']
             return redirect("/")
         return redirect("/login")
-    return render_template("users/login-form.html", login_form=login_form)
+    return jsonify(login_form)
 
 
 @app.route("/logout")

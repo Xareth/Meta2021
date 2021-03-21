@@ -9,7 +9,7 @@ function App() {
     const [ bottomMenuItems, setBottomMenuItems ] = useState([])
 
     useEffect(() => {
-        fetch("/_get-all-users").then(response => response.json().then(data => {
+        fetch("/login").then(response => response.json().then(data => {
             console.log(data);
         }))
     }, [])
