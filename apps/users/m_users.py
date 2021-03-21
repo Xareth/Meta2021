@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import SubmitField, StringField, IntegerField, PasswordField
 from wtforms.validators import DataRequired, Email
 from datetime import datetime
-from models.m_logs import Log
+from apps.logs.m_logs import Log
 from server.config import db, ma
 
 

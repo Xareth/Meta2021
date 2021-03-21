@@ -1,6 +1,5 @@
 from server.config import ma
-from models.m_users import User
-from models.m_logs import Log
+from apps.users.m_users import User
 
 
 class UserSchema(ma.ModelSchema):

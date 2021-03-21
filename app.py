@@ -1,11 +1,10 @@
 from server.config import app, db
-from server import sv_general, sv_login, sv_users, sv_logs
-from models import m_users, m_logs
-from flask_migrate import Migrate, MigrateCommand
+from apps.users import sv_users, sv_login
+from apps.general import sv_general
+from apps.logs import sv_logs
+from flask_migrate import Migrate
 
 migrate = Migrate(app, db)
-
-
 
 if __name__ == '__main__':
     app.run(

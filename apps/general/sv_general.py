@@ -1,6 +1,11 @@
-from server.config import app, db
-from flask import render_template, request, session, redirect, jsonify
-from models.m_users import User
+from server.config import app
+from flask import render_template
+
+
+@app.route("/nice")
+def route_nice():
+    html = "<div>nice message</div>"
+    return html
 
 
 @app.route('/')
@@ -12,4 +17,3 @@ def route_main():
 @app.errorhandler(404)
 def page_not_found(e):
     return "404"
-

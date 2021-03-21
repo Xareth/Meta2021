@@ -1,8 +1,9 @@
 from server.config import app
 from flask import render_template, request, session, redirect
-from models.m_users import LoginForm, ChangePasswordForm
-from operations import o_login, o_logs
-from operations.o_login import login_required
+from apps.users.m_users import LoginForm, ChangePasswordForm
+from apps.logs import o_logs
+from apps.users import o_login
+from apps.users.o_login import login_required
 
 
 @app.route("/login", methods=['GET', 'POST'])
