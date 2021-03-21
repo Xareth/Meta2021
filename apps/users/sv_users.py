@@ -1,10 +1,8 @@
 from server.config import app
-from flask import render_template, request, redirect, jsonify, url_for
-from models.m_users import RegistrationForm
-from data_manager import dm_users
-from operations import o_users
-from operations.o_login import login_required
-from operations.o_users import user_active_required
+from flask import render_template, request, redirect, jsonify
+from apps.users.m_users import RegistrationForm
+from apps.users import o_users, dm_users
+from apps.users.o_login import login_required
 
 
 @app.route("/users", methods=['GET', 'POST'])

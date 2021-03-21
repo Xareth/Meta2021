@@ -1,7 +1,6 @@
-from models.m_users import User
-from data_manager.connection import add, update
-from data_manager import dm_login
-from datetime import datetime
+from server.connection import add
+from apps.users import dm_login
+from apps.users.m_users import User
 
 
 def jsonify_user(user_db):

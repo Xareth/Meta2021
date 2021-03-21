@@ -1,10 +1,6 @@
-from data_manager import dm_logs, dm_users
+from apps.logs import dm_logs
+from apps.users import dm_users
 from flask import session
-from models.m_logs import Log
-from models.m_users import User
-from uuid import uuid1
-from data_manager.connection import update
-from random import random
 
 
 def register_new_log(category, message):

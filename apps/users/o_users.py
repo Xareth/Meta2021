@@ -1,11 +1,9 @@
-from data_manager import dm_login, dm_users
+from apps.users import dm_users
 from flask import redirect, session, jsonify
-from models import m_users
-from models.a_schemas import UserSchema
-from data_manager.connection import update
+from apps.users.a_schemas import UserSchema
+from server.connection import update
 from functools import wraps
-from operations import o_logs
-from data_manager.dm_login import hash_password
+from apps.logs import o_logs
 
 
 def user_active_required(func):

@@ -1,7 +1,6 @@
-from data_manager import dm_login, dm_users
-from data_manager.connection import update
-from models import m_users
-from operations import o_logs
+from apps.users import dm_login, dm_users
+from server.connection import update
+from apps.logs import o_logs
 from flask import session, redirect
 from functools import wraps
 

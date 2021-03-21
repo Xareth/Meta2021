@@ -1,8 +1,5 @@
-from models.m_logs import Log
-from models.m_users import User
-from data_manager.connection import add
-from flask import session
-from server.config import db
+from apps.logs.m_logs import Log
+from server.connection import add
 
 
 @add
