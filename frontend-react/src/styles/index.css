@@ -1,0 +1,109 @@
+:root {
+  --main-blue: rgba(0, 44, 95, 1);
+  --main-sand: rgba(228, 220, 211, 1);
+  --light-sand: rgba(246, 243, 242, 0.3);
+  --main-gold: rgba(163, 107, 79, 1);
+  --white: rgba(255, 255, 255, 1);
+  --black: rgba(0, 0, 0, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-blue: lightgrey;
+    --main-sand: rgba(35, 35, 35, 1);
+    --light-sand: rgba(246, 243, 242, 0.3);
+    --main-gold: rgba(163, 107, 79, 1);
+    --white: rgba(35, 35, 35, 1);
+    --black: white;
+  }
+}
+
+@font-face {
+  font-family: 'Hyundai Sans Head Office';
+  src: url('../fonts/HyundaiSansHeadOffice-Medium.eot');
+  src: local('Hyundai Sans Head Office Medium'), local('HyundaiSansHeadOffice-Medium'),
+  url('../fonts/HyundaiSansHeadOffice-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/HyundaiSansHeadOffice-Medium.woff2') format('woff2'),
+  url('../fonts/HyundaiSansHeadOffice-Medium.woff') format('woff'),
+  url('../fonts/HyundaiSansHeadOffice-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Hyundai Sans Text Office';
+  src: url('../fonts/HyundaiSansTextOffice-Bold.eot');
+  src: local('Hyundai Sans Text Office Bold'), local('HyundaiSansTextOffice-Bold'),
+  url('../fonts/HyundaiSansTextOffice-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/HyundaiSansTextOffice-Bold.woff2') format('woff2'),
+  url('../fonts/HyundaiSansTextOffice-Bold.woff') format('woff'),
+  url('../fonts/HyundaiSansTextOffice-Bold.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  font-family: 'Hyundai Sans Text Office';
+  color: var(--main-blue);
+  background-color: var(--white);
+}
+
+button {
+  border: 0;
+  background-color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+
+/* ========================= Main components ================================= */
+
+.root {
+  height: 100vh;
+}
+
+.container-content {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  background-color: var(--white);
+}
+
+.bottomMenu {
+  background-color: var(--light-sand);
+  height: 100%;
+  grid-column-start: 1;
+  grid-column-end: 13;
+  text-align: center;
+  white-space:nowrap;
+  overflow: auto;
+}
+
+.sideMenu {
+  background-color: var(--main-sand);
+  height: 100%;
+}
+
+.button {
+  padding: 15px;
+}
+
+/* ========================= Bottom Menu ================================= */
+
+.btn-botMenu {
+  width: 100px;
+  height: 100%;
+}
+
+
+
+/* ========================= GRID ================================= */
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+}
+
+.container-main {
+  height: 100vh;
+  grid-template-rows: 80px auto 80px;
+}

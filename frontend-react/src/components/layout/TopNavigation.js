@@ -1,5 +1,4 @@
 import React from "react";
-import "./TopNavigation.css";
 
 function TopNavigation(props) {
     return (<div className="topNavigation">
