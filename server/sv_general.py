@@ -1,8 +1,6 @@
 from server.config import app, db
 from flask import render_template, request, session, redirect, jsonify
-from models.m_privileges import Privilege
 from models.m_users import User
-from operations import o_privileges
 
 
 @app.route('/')

@@ -1,8 +1,8 @@
 from server.config import app
 from flask import render_template, request, redirect, jsonify, url_for
 from models.m_users import RegistrationForm
-from data_manager import dm_users, dm_privileges
-from operations import o_users, o_privileges
+from data_manager import dm_users
+from operations import o_users
 from operations.o_login import login_required
 from operations.o_users import user_active_required
 
@@ -16,14 +16,6 @@ def route_users():
         dm_users.add_new_user(form)
         return redirect('/users')
     return render_template("users/users-list.html", form=form, users=users)
-
-
-@app.route("/user-details/<id>")
-@login_required
-def route_user_details(id):
-    user = dm_users.get_user_by_id(id)
-    roles = o_privileges.get_all_roles()
-    return render_template("users/user-details.html", user=user, roles=roles)
 
 
 @app.route("/deactivate-user/<id>")

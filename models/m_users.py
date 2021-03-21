@@ -3,7 +3,6 @@ from flask_wtf import FlaskForm
 from wtforms import SubmitField, StringField, IntegerField, PasswordField
 from wtforms.validators import DataRequired, Email
 from datetime import datetime
-from models.m_privileges import role_user
 from models.m_logs import Log
 from server.config import db, ma
 
@@ -25,8 +24,6 @@ class User(db.Model):
     position = db.Column(db.String(50))
     avatar = db.Column(db.String(120))
     password = db.Column(db.String(120))
-    role_id = db.relationship("Role",
-                              secondary=role_user, backref="users", lazy="dynamic")
     logs = db.relationship("Log", backref="ex_users")
 
     def __repr__(self):
