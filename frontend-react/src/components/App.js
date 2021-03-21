@@ -8,6 +8,12 @@ function App() {
     const [ sitelinksItems, setSiteLinksItems ] = useState("")
     const [ bottomMenuItems, setBottomMenuItems ] = useState([])
 
+    useEffect(() => {
+        fetch("/_get-all-users").then(response => response.json().then(data => {
+            console.log(data);
+        }))
+    }, [])
+
     function SetHideSideMenu(event) {
         setHidden(!isHidden);
     }
