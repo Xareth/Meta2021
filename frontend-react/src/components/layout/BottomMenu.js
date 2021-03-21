@@ -1,5 +1,4 @@
 import React from "react";
-import "./ButtomMenu.css";
 
 
 function BottomMenu() {
