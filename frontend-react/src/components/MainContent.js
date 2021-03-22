@@ -5,7 +5,7 @@ import Settings from "./settings/Settings";
 
 function MainContent(props) {
 
-    return <div id="main-content" className="container-content">
+    return <div id="main-content" onClick={props.SetCloseSideMenu} className="container-content">
         {props.module === "login" ? <Login SetBottomMenu={props.SetBottomMenu} SubMod={props.subMod} /> : ""}
         {props.module === "settings" ? <Settings SetBottomMenu={props.SetBottomMenu} /> : ""}
 

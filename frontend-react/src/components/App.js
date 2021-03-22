@@ -27,14 +27,13 @@ function App() {
     // Sets name of current module
     function SetModuleName(event) {
         setModule(event.target.attributes[0].nodeValue);
+        setSubMod("");
+        SetCloseSideMenu();
     }
 
     // Sets the name of the submodule
     function SetSubModule(event) {
         setSubMod(event.target.attributes[0].value);
-        console.log("SetSubModule called: ", event.target.attributes[0].value);
-        console.log("SubMod:",subMod);
-
     }
 
     // Renders 4 main website components
