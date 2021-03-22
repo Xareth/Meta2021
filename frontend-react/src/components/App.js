@@ -34,6 +34,7 @@ function App() {
     // Sets the name of the submodule
     function SetSubModule(event) {
         setSubMod(event.target.attributes[0].value);
+        console.log(event.target.attributes[0].value);
     }
 
     // Renders 4 main website components
