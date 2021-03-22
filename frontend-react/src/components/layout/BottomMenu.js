@@ -4,21 +4,23 @@ import React from "react";
 function BottomMenu(props) {
 
     return (
-        <div className="bottomMenu">
-            {props.bottomMenuItems.map(CreateMenuItem)}
+        <div className="bottomMenu" onClick={props.SetCloseSideMenu}>
+            {props.bottomMenuItems.map((data) => {
+                return <MenuItem
+                    key={data}
+                    name={data}
+                    SetSubMod={props.SetSubModule}
+                    subMod={props.subMod}
+                />
+            })}
         </div>
     )
 }
 
-function CreateMenuItem(props) {
-    return <MenuItem
-        key={props}
-        name={props}
-     />
-}
-
 function MenuItem(props) {
-    return <button className="button btn-botMenu">{props.name}</button>
+    return <button onClick={props.SetSubMod} name={props.name}
+                   className={ props.subMod === props.name ? "button btn-botMenu btn-botMenu-active" : "button btn-botMenu" }
+    >{props.name}</button>
 }
 
 export default BottomMenu;

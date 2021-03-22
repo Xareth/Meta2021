@@ -135,3 +135,7 @@
     width: 100px;
     height: 100%;
 }
+
+.btn-botMenu-active {
+    background-color: var(--light-sand);
+}

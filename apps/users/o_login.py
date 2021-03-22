@@ -1,7 +1,7 @@
-from apps.users import dm_login, dm_users
+from apps.users import dm_login, dm_users, m_users
 from server.connection import update
 from apps.logs import o_logs
-from flask import session, redirect
+from flask import session, redirect, jsonify
 from functools import wraps
 
 
@@ -23,8 +23,10 @@ def login_required(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         if 'username' in session:
+            print("user name in sessions")
             return func(*args, **kwargs)
-        return redirect("/login")
+        print("user name NOT in sessions")
+        return "nice"
     return wrapper
 
 
@@ -43,3 +45,8 @@ def change_password_by_form(password_form, user):
     except Exception:
         o_logs.register_new_log("login", f"Wystąpił błąd podczas zmiany hasła użytkownika {user.email}")
         return False
+
+
+def serialize_login_form():
+    form = jsonify({"form": m_users.login_form()})
+    return form

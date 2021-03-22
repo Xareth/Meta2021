@@ -25,58 +25,9 @@ def get_all_users_jsonify():
     return jsonify(user)
 
 
-def get_user_by_session_jsonify():
-    user_db = dm_users.get_user_by_email(session['username'])
-    user_schema = UserSchema()
-    user = user_schema.dump(user_db).data
-    return jsonify({'user': user})
-
-
-@update
-def update_user_by_id(user_form):
-    old = dm_users.get_user_by_id(user_form['id'])
-    old.email = user_form['email']
-    old.first_name = user_form['first_name']
-    old.last_name = user_form['last_name']
-    old.position = user_form['position']
-    old.department = user_form['department']
-    o_logs.register_new_log("users", f"Użytkownik {session['username']} edytował użytkownika {old.email}")
-    return old
-
-
-@update
-def deactivate_user(user_id):
-    try:
-        user = dm_users.get_user_by_id(user_id)
-        user.status = False
-        o_logs.register_new_log("users", f"Użytkownik {session['username']} dezaktywował użytkownika {user.email}")
-        return True
-    except Exception:
-        return False
-
-
-@update
-def activate_user(user_id):
-    try:
-        user = dm_users.get_user_by_id(user_id)
-        user.status = True
-        o_logs.register_new_log("users", f"Użytkownik {session['username']} aktywował użytkownika {user.email}")
-        return True
-    except Exception:
-        return False
-
-
-def add_admin_user(form):
-    form.email.data = 'test@test.pl'
-    form.first_name.data = 'Admin'
-    form.last_name.data = 'Administrator'
-    try:
-        dm_users.add_new_user(form)
-        return True
-    except Exception:
-        return False
-
-
+def serialize_user_form():
+    user_form = m_users.user_form()
+    return jsonify(user_form)
 def serialize_user_form():
     user_form = m_users.user_form()
     return jsonify(user_form)

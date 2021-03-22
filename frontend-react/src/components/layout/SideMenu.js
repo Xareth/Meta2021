@@ -2,8 +2,10 @@ import React, { useState } from "react";
 
 function SideMenu(props) {
 
-    const [ sitelinksItems, setSiteLinksItems ] = useState([{"name": "Salon nowe", "route": "salon-nowe"},
-        {"name": "Salon używane", "route": "salon-uzywane"}, {"name": "Ustawienia", "route": "ustawienia"}])
+    const [ sitelinksItems, setSiteLinksItems ] = useState([
+        {"name": "login", "route": "login"},
+        {"name": "ustawienia", "route": "settings"}
+        ])
 
     function SetSiteLinks(event) {
         console.log("nice");

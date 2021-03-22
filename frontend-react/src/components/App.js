@@ -6,44 +6,54 @@ import MainContent from "./MainContent";
 
 function App() {
     const [ isHidden, setHidden ] = useState(true);
-    const [ bottomMenuItems, setBottomMenuItems ] = useState([])
-    const [ module, setModule ] = useState("login")
-
-    // to delete
-    useEffect(() => {
-        fetch("/login").then(response => response.json().then(data => {
-            console.log(data);
-        }))
-    }, [])
+    const [ bottomMenuItems, setBottomMenuItems ] = useState([]);
+    const [ module, setModule ] = useState("login");
+    const [ subMod, setSubMod ] = useState("");
 
     // Hides side menu
     function SetHideSideMenu(event) {
         setHidden(!isHidden);
     }
 
+    function SetCloseSideMenu(event) {
+        setHidden(true);
+    }
+
     // Generates items in bottom menu
     function SetBottomMenu(event) {
-        console.log(event);
         setBottomMenuItems(event);
     }
 
     // Sets name of current module
     function SetModuleName(event) {
-        console.log(event.target.attributes[0].nodeValue);
         setModule(event.target.attributes[0].nodeValue);
+    }
+
+    // Sets the name of the submodule
+    function SetSubModule(event) {
+        setSubMod(event.target.attributes[0].value);
+        console.log("SetSubModule called: ", event.target.attributes[0].value);
+        console.log("SubMod:",subMod);
+
     }
 
     // Renders 4 main website components
     return <div className="container container-main">
         <TopNavigation
             SetHideSideMenu={SetHideSideMenu}
+            SetCloseSideMenu={SetCloseSideMenu}
         />
         <MainContent
             SetBottomMenu={SetBottomMenu}
             module={module}
+            subMod={subMod}
+            SetCloseSideMenu={SetCloseSideMenu}
         />
         <BottomMenu
             bottomMenuItems={bottomMenuItems}
+            SetSubModule={SetSubModule}
+            subMod={subMod}
+            SetCloseSideMenu={SetCloseSideMenu}
         />
         <SideMenu
             SetHideSideMenu={SetHideSideMenu}

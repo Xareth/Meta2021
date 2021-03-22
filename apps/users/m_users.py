@@ -1,4 +1,7 @@
 from server.config import db
+from flask_wtf import FlaskForm
+from wtforms import SubmitField, StringField, IntegerField, PasswordField
+from wtforms.validators import DataRequired, Email
 from datetime import datetime
 from apps.logs.m_logs import Log
 from server.config import db, ma
@@ -40,5 +43,20 @@ def user_form():
             "placeholder": "np. Kowalski"
         }
     ]
-
     return user_form
+
+
+def login_form():
+    list = [
+        {
+            "label": "Email",
+            "type": "email",
+            "placeholder": "Wpisz swój email test@test.pl"
+        },
+        {
+            "label": "Hasło",
+            "type": "password",
+            "placeholder": ""
+        },
+    ]
+    return list
