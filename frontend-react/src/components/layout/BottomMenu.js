@@ -1,19 +1,24 @@
 import React from "react";
 
 
-function BottomMenu() {
-    return <div className="bottomMenu">
-        <button className="button btn-botMenu">1st rzecz</button>
-        <button className="button btn-botMenu">1st rzecz</button>
-        <button className="button btn-botMenu">1st rzecz</button>
-        <button className="button btn-botMenu">1st rzecz</button>
-        <button className="button btn-botMenu">1st rzecz</button>
-        <button className="button btn-botMenu">1st rzecz</button>
-        <button className="button btn-botMenu">1st rzecz</button>
-        <button className="button btn-botMenu">1st rzecz</button>
-        <button className="button btn-botMenu">1st rzecz</button>
-        <button className="button btn-botMenu">1st rzecz</button>
-    </div>
+function BottomMenu(props) {
+
+    return (
+        <div className="bottomMenu">
+            {props.bottomMenuItems.map(CreateMenuItem)}
+        </div>
+    )
+}
+
+function CreateMenuItem(props) {
+    return <MenuItem
+        key={props}
+        name={props}
+     />
+}
+
+function MenuItem(props) {
+    return <button className="button btn-botMenu">{props.name}</button>
 }
 
 export default BottomMenu;

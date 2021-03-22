@@ -1,7 +1,4 @@
 from server.config import db
-from flask_wtf import FlaskForm
-from wtforms import SubmitField, StringField, IntegerField, PasswordField
-from wtforms.validators import DataRequired, Email
 from datetime import datetime
 from apps.logs.m_logs import Log
 from server.config import db, ma
@@ -30,24 +27,18 @@ class User(db.Model):
         return f'Użytkownik {self.first_name} {self.last_name}'
 
 
-class RegistrationForm(FlaskForm):
-    id = IntegerField('ID')
-    email = StringField('E-mail', validators=[DataRequired(), Email()])
-    first_name = StringField('Imię', validators=[DataRequired()])
-    last_name = StringField('Nazwisko', validators=[DataRequired()])
-    position = StringField('Stanowisko', validators=[DataRequired()])
-    submit = SubmitField('Dodaj', id='submit_add_user')
+def user_form():
+    user_form = [
+        {
+            "label": "Email",
+            "type": "email",
+            "placeholder": "np. test@test.pl"
+        },
+        {
+            "label": "Nazwisko",
+            "type": "name",
+            "placeholder": "np. Kowalski"
+        }
+    ]
 
-
-class LoginForm(FlaskForm):
-    email = StringField('E-mail', validators=[DataRequired(), Email()])
-    password = PasswordField('Hasło', validators=[DataRequired()])
-    submit = SubmitField('Zaloguj', id='submit_login')
-
-
-class ChangePasswordForm(FlaskForm):
-    email = StringField('E-mail', validators=[DataRequired(), Email()])
-    old_password = PasswordField('Stare hasło', validators=[DataRequired()])
-    new_password = PasswordField('Nowe hasło', validators=[DataRequired()])
-    new_password2 = PasswordField('Potwierdź nowe hasło', validators=[DataRequired()])
-    submit = SubmitField('Zmień hasło', id='submit_password_change')
+    return user_form

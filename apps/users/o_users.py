@@ -4,6 +4,7 @@ from apps.users.a_schemas import UserSchema
 from server.connection import update
 from functools import wraps
 from apps.logs import o_logs
+from apps.users import m_users
 
 
 def user_active_required(func):
@@ -76,3 +77,6 @@ def add_admin_user(form):
         return False
 
 
+def serialize_user_form():
+    user_form = m_users.user_form()
+    return jsonify(user_form)
