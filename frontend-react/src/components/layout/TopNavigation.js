@@ -18,7 +18,6 @@ function TopNavigation(props) {
                 <span> Roles </span>
             </div>
         </div>
-
     </div>)
 }
 

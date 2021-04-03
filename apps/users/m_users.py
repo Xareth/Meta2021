@@ -49,14 +49,26 @@ def user_form():
 def login_form():
     list = [
         {
+            "id": 0,
             "label": "Email",
+            "field": "input",
             "type": "email",
-            "placeholder": "Wpisz swój email test@test.pl"
+            "placeholder": "Wpisz swój email test@test.pl",
+            "value": "",
         },
         {
+            "id": 1,
             "label": "Hasło",
+            "field": "input",
             "type": "password",
-            "placeholder": ""
+            "placeholder": "",
+            "value": "",
         },
+        {
+            "id": 2,
+            "field": "input",
+            "type": "submit",
+            "value": "",
+        }
     ]
     return list

@@ -8,14 +8,12 @@ function Login(props) {
     // Create Bottom menu when page is called
     useEffect( () => {
         props.SetBottomMenu(menuItems);
-        fetch("/_users").then(response => response.json().then(data => {
-            console.log(data);
-        })).catch((e) => { console.log("Error occured: ",e) })
         }, [])
 
     return <div>
-        {props.subMod === "Login" ? <_LoginForm /> : ""}
+        {props.subMod === "Login" ? <_LoginForm subMod={props.subMod} /> : ""}
     </div>
 }
+
 
 export default Login;
