@@ -2,11 +2,11 @@ import React, {useEffect} from "react";
 
 
 // Render form operations (Update on change, After submit button)
-function RenderForm(form, setForm) {
+function RenderForm(form, setForm, methods) {
 
     // Load form
     useEffect(() => {
-        fetch("/_login").then(response => response.json().then(data => {
+        fetch(methods.route).then(response => response.json().then(data => {
             setForm(data.form)
         })).catch((e) => { console.log("Error occured: ",e) })
     }, []);
@@ -34,8 +34,9 @@ function RenderForm(form, setForm) {
             dataType: 'json',
             body: JSON.stringify(form)
         };
-        const response = await fetch('/_login', requestOptions);
-        const result = response.json();
+        const response = await fetch(methods.route, requestOptions);
+        const result = await response.json();
+        methods.setSubMod(result.route);
     }
 
 

@@ -11,7 +11,7 @@ function Login(props) {
         }, [])
 
     return <div>
-        {props.subMod === "Login" ? <_LoginForm subMod={props.subMod} /> : ""}
+        {props.subMod === "Login" ? <_LoginForm subMod={props.subMod} setSubMod={props.SetSubMod} /> : ""}
     </div>
 }
 

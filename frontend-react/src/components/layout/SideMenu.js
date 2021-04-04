@@ -25,12 +25,21 @@ function SideMenu(props) {
                 })}
             </ul>
         </div>
+        <div className="sideMenu-moduls">
+            <ul>
+                <li name="login" className={props.isLogged ? "hidden" : ""}>Zaloguj się</li>
+                <li className={props.isLogged ? "" : "hidden"}>test@test.pl</li>
+                <li className={props.isLogged ? "" : "hidden"}>Wyloguj się</li>
+            </ul>
+        </div>
     </div>)
 }
 
 
 function SiteItem(props) {
+
     return <li name={props.route} onClick={props.setModuleName}>{props.name}</li>
 }
+
 
 export default SideMenu;

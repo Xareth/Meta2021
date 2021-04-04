@@ -15,7 +15,7 @@ def route_login_form():
 def route_login_post():
     if request.method == "POST":
         print(request.json)
-
+        o_login.verify_login(request.json)
     else:
         print("get detected")
-    return jsonify({"route": "/_login"})
+    return jsonify({"route": "whatever"})

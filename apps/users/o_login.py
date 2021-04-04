@@ -7,15 +7,15 @@ from functools import wraps
 
 def verify_login(data):
     try:
-        user = dm_users.get_user_by_email(data['email'])
-        result = dm_login.verify_password(data['password'], user.password)
+        user = dm_users.get_user_by_email(data[0]['value'])
+        result = dm_login.verify_password(data[1]['value'], user.password)
         if result:
             o_logs.register_new_log("login", f"Użytkownik {user.email} poprawnie zalogował się do systemu")
             return result
         o_logs.register_new_log("login", f"Użytkownik {user.email} podał złe hasło")
         return False
     except Exception:
-        o_logs.register_new_log("login", f"Ktoś próbował zalogować się do systemu przy użyciu maila: {data['email']}")
+        o_logs.register_new_log("login", f"Ktoś próbował zalogować się do systemu przy użyciu maila: {data[0]['value']}")
         return False
 
 
